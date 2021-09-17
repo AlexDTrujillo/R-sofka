@@ -34,26 +34,49 @@ class PreguntasNivel3
   }
 }
 
+class CategoriaPremio
+{
+  constructor(cat,prem)
+    {
+    this.categoria=cat;
+    this.premio=prem;
+    }
+}
+
 
 //creacion caja de preguntas
 var preguntaCategoria1=[];
 var preguntaCategoria2=[];
 var preguntaCategoria3=[];
 var preguntaCategoria4=[];
+var preguntaCategoria5=[];
+var categoriaxPremio=[];
 //variables auxiliares//
 var resUsuario=0;
 var aleatorioP1=aleatorio(0,4);
 var aleatorioP2=aleatorio(0,4);
-var aleatorioP3=aleatorio(0,4);
-var aleatorioP4=aleatorio(0,4);
-var aleatorioP5=aleatorio(0,4);
 var victoria=0;
 var pregunta;
 var correcta=0;
+var nombreUsuario;
+var acumuladoPuntos=0;
+console.log(aleatorioP1,aleatorioP2);
 
-console.log(aleatorioP1,aleatorioP2,aleatorioP3,aleatorioP4,aleatorioP5);
+//creacion de categoria y premios por categoria
+categoriaxPremio[0]=new CategoriaPremio("Categoria 1 - Super Facil", 100);
+categoriaxPremio[1]=new CategoriaPremio("Categoria 2 - Facil", 150);
+categoriaxPremio[2]=new CategoriaPremio("Categoria 3 - Mediio", 200);
+categoriaxPremio[3]=new CategoriaPremio("Categoria 4 - Dificil", 350);
+categoriaxPremio[4]=new CategoriaPremio("Categoria 5 - Super Dificil", 500);
 
 //Introduccion preguntas categoria 1
+preguntaCategoria1.push(new PreguntasNivel1("¿Si hoy es lunes, ayer era?","Domingo","Martes","Miercoles","Sabado"));
+preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 2+2? ","4","2","3","5"));
+preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 5+5?","10","5","20","15"));
+preguntaCategoria1.push(new PreguntasNivel1("¿Si hoy es sabado, mañana serà?","Domingo","Martes","Miercoles","Sabado"));
+preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 15-10?","5","10","20","1"));
+
+//Introduccion preguntas categoria 2
 preguntaCategoria1.push(new PreguntasNivel1("¿Cuál es el río más largo del mundo?","Amazonas","Nilo","Quito","Atrato"));
 preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 2+2? ","4","2","3","5"));
 preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 5+5?","10","5","20","15"));
@@ -64,7 +87,6 @@ console.log(preguntaCategoria1);
 pregunta1=preguntaCategoria1[0];
 console.log(pregunta1.preguntaNvl1);
 
-
 //calculo de aleatorios//
 function aleatorio(min, maxi)
 {
@@ -74,36 +96,44 @@ function aleatorio(min, maxi)
 }
 
 //Iniciando el juego
+nombreUsuario=prompt("Bienvenido a este juego de preguntas!"+"\n"+"Cual es tu nombre")
 switch (aleatorioP1) {
   case 0:
     pregunta=preguntaCategoria1[0];
-    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
-    break;
+    catPremio=categoriaxPremio[0]
+    resUsuario=prompt ("Esta es la primera pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl1 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+    correcta=1
+  break;
+  
   case 1:
     pregunta=preguntaCategoria1[1];
-    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    catPremio=categoriaxPremio[0]
+    resUsuario=prompt ("Esta es la primera pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl1 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
     correcta=1
   break;
 
   case 2:
     pregunta=preguntaCategoria1[2];
-    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    catPremio=categoriaxPremio[0]
+    resUsuario=prompt ("Esta es la primera pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl1 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
     correcta=1 
   break;
 
   case 3:
     pregunta=preguntaCategoria1[3];    
-    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    catPremio=categoriaxPremio[0]
+    resUsuario=prompt ("Esta es la primera pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl1 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
     correcta=1
     break;
   case 4:
     pregunta=preguntaCategoria1[4];
-    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    catPremio=categoriaxPremio[0]
+    resUsuario=prompt ("Esta es la primera pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl1 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
     correcta=1 
   break;   
 }
 //fin inicializacion del juego
-
+/*
 //haciendo el juego consecutivo si gana
 if (resUsuario==correcta) {
   //pasamos a la siguiente ronda//
@@ -225,5 +255,14 @@ else {
   alert("siempre lo puedes volver a intentar")
 }
 console.log("victorias acumuladas"+victoria);
+//fin del juego
+document.write(nombreUsuario+" ganastes  un total de: "+acumuladoPuntos+" puntos.");
+    
 //agregar opcion de si deseas seguir jugando por mas dinero//
 //agregar premio//
+//Creación de objetos de entidades; ronda, jugador, categoría, premio,pregunta,
+//opciones, etc...//
+//agregar boton de iniciar el juego
+//5 preguntas 5 categorias//
+//indicar que la respuesta es solo el numero o letra
+// si se retira debe quedar con su premio y si pierde pierde todo*/
