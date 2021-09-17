@@ -3,7 +3,7 @@ class PreguntasNivel1
 {
   constructor(pn1,r1,r2,r3,r4)
     {
-    this.pregunta1=pn1;
+    this.preguntaNvl1=pn1;
     this.respCorrecta=r1;
     this.respError1=r2;
     this.respError2=r3;
@@ -15,22 +15,22 @@ class PreguntasNivel2
 {
   constructor(pn2,r1,r2,r3,r4)
   {
-    this.preguntaDeNivel2=pn2;
-    this.respuestaCorrecta=r1;
-    this.respuestaError1=r2;
-    this.respuestaError2=r3;
-    this.respuestaError3=r4;  
+    this.preguntaNvl2=pn2;
+    this.respCorrecta=r1;
+    this.respError1=r2;
+    this.respError2=r3;
+    this.respError3=r4;
   }
 }
 class PreguntasNivel3
 {
   constructor(pn3,r1,r2,r3,r4)
   {
-    this.preguntaDeNivel3=pn3;
-    this.respuestaCorrecta=r1;
-    this.respuestaError1=r2;
-    this.respuestaError2=r3;
-    this.respuestaError3=r4;
+    this.preguntaNvl3=pn3;
+    this.respCorrecta=r1;
+    this.respError1=r2;
+    this.respError2=r3;
+    this.respError3=r4;
   }
 }
 
@@ -48,19 +48,23 @@ var aleatorioP3=aleatorio(0,4);
 var aleatorioP4=aleatorio(0,4);
 var aleatorioP5=aleatorio(0,4);
 var victoria=0;
+var pregunta;
+var correcta=0;
+
 console.log(aleatorioP1,aleatorioP2,aleatorioP3,aleatorioP4,aleatorioP5);
 
 //Introduccion preguntas categoria 1
 preguntaCategoria1.push(new PreguntasNivel1("¿Cuál es el río más largo del mundo?","Amazonas","Nilo","Quito","Atrato"));
-preguntaCategoria1.push(new PreguntasNivel1("Pregunta2","respeuestacorrectap2","Respuestaerrada1","Respuestaerrada2","Respuestaerrada3"));
-preguntaCategoria1.push(new PreguntasNivel1("Pregunta3","respeuestacorrectap3","Respuestaerrada1","Respuestaerrada2","Respuestaerrada3"));
-console.log(preguntaCategoria1);
-a=preguntaCategoria1[0];
-console.log(a.pregunta1);
+preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 2+2? ","4","2","3","5"));
+preguntaCategoria1.push(new PreguntasNivel1("¿cuanto es 5+5?","10","5","20","15"));
+preguntaCategoria1.push(new PreguntasNivel1("¿Cuál es el país con más habitantes del mundo?","China","Colombia","Mexico","Medellin"));
+preguntaCategoria1.push(new PreguntasNivel1("¿Donde vive el papa de la iglesia catolica?","El Baticano","Francia","Holanda","Colombia"));
 
-/*var categoria1=
-document.write(a.pregunta1);
-prompt (a.pregunta1);*/
+console.log(preguntaCategoria1);
+pregunta1=preguntaCategoria1[0];
+console.log(pregunta1.preguntaNvl1);
+
+
 //calculo de aleatorios//
 function aleatorio(min, maxi)
 {
@@ -72,32 +76,36 @@ function aleatorio(min, maxi)
 //Iniciando el juego
 switch (aleatorioP1) {
   case 0:
-    resUsuario=prompt ("CASO 0");
-    //return resUsuario
+    pregunta=preguntaCategoria1[0];
+    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
     break;
   case 1:
-    resUsuario=prompt ("CASO 1");
-    //return resUsuario
-    break;
+    pregunta=preguntaCategoria1[1];
+    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    correcta=1
+  break;
 
   case 2:
-    resUsuario=prompt ("CASO 2");
-    //return resUsuario
+    pregunta=preguntaCategoria1[2];
+    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    correcta=1 
   break;
 
   case 3:
-    resUsuario= prompt ("CASO 3");
-    //return resUsuario
-  break;
+    pregunta=preguntaCategoria1[3];    
+    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    correcta=1
+    break;
   case 4:
-    resUsuario= prompt ("CASO 4");
-    //return resUsuario
+    pregunta=preguntaCategoria1[4];
+    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    correcta=1 
   break;   
 }
 //fin inicializacion del juego
 
 //haciendo el juego consecutivo si gana
-if (resUsuario==1) {
+if (resUsuario==correcta) {
   //pasamos a la siguiente ronda//
   //sacando segunda pregunta aleatoria
   victoria=victoria+1;
@@ -108,43 +116,38 @@ if (resUsuario==1) {
  //segunda pregunta de la categoria 1 
   switch (aleatorioP2) {
     case 0:
-      resUsuario=prompt ("CASO 0");
-      //return resUsuario
-      break;
+    pregunta=preguntaCategoria1[0];
+    resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+    break;
     case 1:
-      resUsuario=prompt ("CASO 1");
-      //return resUsuario
-      break;
-  
-    case 2:
-      resUsuario=prompt ("CASO 2");
-      //return resUsuario
+      pregunta=preguntaCategoria1[1];
+      resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+      correcta=1
     break;
-  
-    case 3:
-      resUsuario= prompt ("CASO 3");
-      //return resUsuario
-    break;
-    case 4:
-      resUsuario= prompt ("CASO 4");
-      //return resUsuario
-    break;
-          
-    default:
-      break;
-      
-  }
-  //return victoria;
-} 
-else {
-  alert("lo sentimos, perdiste")
-}
 
-if (resUsuario==2) {
+    case 2:
+      pregunta=preguntaCategoria1[2];
+      resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+      correcta=1 
+    break;
+
+    case 3:
+      pregunta=preguntaCategoria1[3];    
+      resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+      correcta=1
+      break;
+    case 4:
+      pregunta=preguntaCategoria1[4];
+      resUsuario=prompt (pregunta.preguntaNvl1 +"\n" + "1-"+pregunta.respCorrecta+ "\n"+  "2-"+pregunta.respError1+"\n"+ "3-"+pregunta.respError2 +"\n"  +"4-"+pregunta.respError3);
+      correcta=1
+    break     
+  }
+} 
+
+if (resUsuario==correcta) {
   victoria=victoria+1;
-} else {
-  alert("siempre lo puedes volver a intentar")
-}
+} 
+
 console.log("victorias acumuladas"+victoria);
 
 //pasando a las preguntas de categoria dos//
@@ -160,21 +163,21 @@ if (victoria==2) {
       break;
     case 1:
       resUsuario=prompt ("CASO 1 cat2");
-      //return resUsuario
+      
       break;
 
     case 2:
       resUsuario=prompt ("CASO 2 cat2");
-      //return resUsuario
+      
     break;
 
     case 3:
       resUsuario= prompt ("CASO 3 cat2");
-      //return resUsuario
+      
     break;
     case 4:
       resUsuario= prompt ("CASO 4 cat2");
-      //return resUsuario
+      
     break;          
   }
 }
@@ -187,41 +190,40 @@ if (resUsuario==3) {
   while (aleatorioP1==aleatorioP2) {
     aleatorioP2=aleatorio(0,4);
   }
- //segunda pregunta de la categoria 1 
+ //segunda pregunta de la categoria 2 
   switch (aleatorioP2) {
     case 0:
       resUsuario=prompt ("CASO 0 pre2 cat 2");
-      //return resUsuario
-      break;
+    break;
+    
     case 1:
       resUsuario=prompt ("CASO 1 pre2 cat 2");
-      //return resUsuario
-      break;
+      
+    break;
   
     case 2:
-      resUsuario=prompt ("CASO 2  pre2 cat 2");
-      //return resUsuario
+      resUsuario=prompt ("CASO 2  pre2 cat 2");    
     break;
   
     case 3:
       resUsuario= prompt ("CASO 3 pre2 cat 2");
-      //return resUsuario
     break;
+
     case 4:
-      resUsuario= prompt ("CASO 4 pre2 cat 2");
-      //return resUsuario
+      resUsuario= prompt ("CASO 4 pre2 cat 2");  
     break;
   }
-  //return victoria;
 } 
-else {
-  alert("lo sentimos, perdiste")
-}
-
 if (resUsuario==4){ //si cuarta respuesta es correcta{
   victoria=victoria+1;
-} else {
+} 
+//condicion de respuesta erronea
+if (victoria>=8)
+alert ("Eres el campeon de este juego" +"\n" +"FELICITACIONES")
+else {
   alert("lo sentimos, perdiste")
   alert("siempre lo puedes volver a intentar")
 }
 console.log("victorias acumuladas"+victoria);
+//agregar opcion de si deseas seguir jugando por mas dinero//
+//agregar premio//
