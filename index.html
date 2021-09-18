@@ -8,11 +8,19 @@
 </head>
 <body>
     <h1>Bienvenido a este reto de Preguntas </h1>
-    <script src="Juego.js"></script> 
-     <p>
-      <input type="number" id="Respuestas">
-      <input type="button" value="Enviar Respuesta" id="Enviar">
+    <p>Reglas del juego</p>
+    <p>Para iniciar debes dar click en el boton de "Iniciar Juego" (el juego inicia en ventana emergente). 
+    para dar respuesta a una pregunta debes escribir unicamente el numero asignado a cada respuesta posible y dar click al boton de aceptar.
+    Al final de cada pregunta tendras la opcion retirarte del juego conservando los puntos adquiridos hasta el momento.
+    Si escribes un numero no asignado a una posible respuesta, el sistema te marcara como respuesta errada.
+    El boton cancelar funciona como "no saber la respuesta" por lo que se te marcara como respuesta errada a la pregunta
     </p>
-
+    <input type="button" value="Iniciar Juego" id="Iniciar">   
+    <p>
+        <h1>Tus resultados:</h1>
+        <h3 id="resultado1"> </h3>
+        <h3 id="resultado2"> </h3>
+    </p> 
+    <script src="Juego.js"></script> 
 </body>
 </html>
