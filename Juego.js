@@ -137,7 +137,8 @@ function aleatoriedad(min, maxi)
 nombreUsuario=prompt("Bienvenido a este juego de preguntas!"+"\n"+"Cual es tu nombre")
 catPremio=categoriaxPremio[0]
 aleatorio=aleatoriedad(0,4);
-switch (aleatorio) {
+switch (aleatorio) 
+{
   case 0:
     pregunta=preguntaCategoria1[0];
     resUsuario=prompt ("Primera pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl1 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
@@ -177,13 +178,13 @@ if (resUsuario==correcta)
   acumuladoPuntos=acumuladoPuntos+catPremio.premio;
   alert("Felicidades, ahora aumentaremos la dificultad");
   catPremio=categoriaxPremio[1];
-  //pregunta 2
   continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
-  if(continuidad==1){ 
-    aleatorio=aleatoriedad(0,4);
-   // catPremio=categoriaxPremio[1];
-    
-    switch (aleatorio) {
+  aleatorio=aleatoriedad(0,4);
+  if(continuidad==1)
+  { 
+    //pregunta 2
+    switch (aleatorio) 
+    {
       case 0:
         pregunta=preguntaCategoria2[0];
         resUsuario=prompt ("Segunda pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl2 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
@@ -214,161 +215,202 @@ if (resUsuario==correcta)
       correcta=2 
       break;   
     }
-  }else{
-    alert("Te retiras con: "+acumuladoPuntos+" puntos.");
-    correcta=0;
-  }
-}
-continuidad=0;
-
-if (resUsuario==correcta) {
-  victoria=victoria+1;
-  acumuladoPuntos=acumuladoPuntos+catPremio.premio;
-  alert("Felicidades, ahora aumentaremos la dificultad");
-  catPremio=categoriaxPremio[2];
-  //pregunta 3
-  continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
-  if(continuidad==1){ 
-    aleatorio=aleatoriedad(0,4);
-    switch (aleatorio) {
-      case 0:
-      pregunta=preguntaCategoria3[0];
-      resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-      correcta=1
-      break;
+    
+    if (resUsuario==correcta) {
+      victoria=victoria+1;
+      acumuladoPuntos=acumuladoPuntos+catPremio.premio;
+      alert("Felicidades, ahora aumentaremos la dificultad");
+      catPremio=categoriaxPremio[2];
+      continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
+      aleatorio=aleatoriedad(0,4);
+      if(continuidad==1)
+      { 
+        //pregunta 3
+        switch (aleatorio) {
+          case 0:
+          pregunta=preguntaCategoria3[0];
+          resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+          correcta=1
+          break;
+          
+          case 1:
+            pregunta=preguntaCategoria3[1];
+            resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respError3+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respCorrecta+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+            correcta=4
+          break;
       
-      case 1:
-        pregunta=preguntaCategoria3[1];
-        resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respError3+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respCorrecta+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=4
-      break;
-  
-      case 2:
-        pregunta=preguntaCategoria3[2];
-        resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=1 
-      break;
-  
-      case 3:
-        pregunta=preguntaCategoria3[3];
-        resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respError2+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respCorrecta +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=3;
-      break;
-
-      case 4:
-        pregunta=preguntaCategoria3[4];
-        resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respError1+ "\n"+  "2) "+pregunta.respCorrecta+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=2 
-      break;                
+          case 2:
+            pregunta=preguntaCategoria3[2];
+            resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+            correcta=1 
+          break;
+      
+          case 3:
+            pregunta=preguntaCategoria3[3];
+            resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respError2+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respCorrecta +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+            correcta=3;
+          break;
+    
+          case 4:
+            pregunta=preguntaCategoria3[4];
+            resUsuario=prompt ("Tercer pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl3 +"\n" + "1) "+pregunta.respError1+ "\n"+  "2) "+pregunta.respCorrecta+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+            correcta=2 
+          break;                
+        }
+      
+        if (resUsuario==correcta) 
+        {
+          victoria=victoria+1;
+          acumuladoPuntos=acumuladoPuntos+catPremio.premio
+          alert("Felicidades, ahora aumentaremos la dificultad")
+          catPremio=categoriaxPremio[3];
+          continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
+          aleatorio=aleatoriedad(0,4);
+          //pregunta 4
+          if(continuidad==1)
+          { 
+            switch (aleatorio) 
+            {
+              case 0:
+              pregunta=preguntaCategoria4[0];
+              resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+              correcta=1
+              break;
+              
+              case 1:
+                pregunta=preguntaCategoria4[1];
+                resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respError3+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respCorrecta+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                correcta=4
+              break;
+        
+              case 2:
+                pregunta=preguntaCategoria4[2];
+                resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                correcta=1 
+              break;
+        
+              case 3:
+                pregunta=preguntaCategoria4[3];
+                resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respError2+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respCorrecta +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                correcta=3;
+              break;
+        
+              case 4:
+                pregunta=preguntaCategoria4[4];
+                resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respError1+ "\n"+  "2) "+pregunta.respCorrecta+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                correcta=2; 
+              break;   
+            } 
+           
+            if (resUsuario==correcta) 
+            {
+              victoria=victoria+1;
+              acumuladoPuntos=acumuladoPuntos+catPremio.premio
+              alert("Felicidades, ahora aumentaremos la pregunta FINAL")
+              aleatorio=aleatoriedad(0,4);
+              catPremio=categoriaxPremio[4];
+              continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
+              aleatorio=aleatoriedad(0,4);
+              //pregunta 5
+              if(continuidad==1)
+              { 
+                switch (aleatorio) 
+                {
+                  case 0:
+                  pregunta=preguntaCategoria5[0];
+                  resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                  correcta=1
+                  break;
+                
+                  case 1:
+                    pregunta=preguntaCategoria5[1];
+                    resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respError3+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respCorrecta+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                    correcta=4
+                  break;
+                
+                  case 2:
+                    pregunta=preguntaCategoria5[2];
+                    resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                    correcta=1 
+                  break;
+                
+                  case 3:
+                    pregunta=preguntaCategoria5[3];
+                    resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respError2+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respCorrecta +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                    correcta=3;
+                  break;
+                
+                  case 4:
+                    pregunta=preguntaCategoria5[4];
+                    resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respError1+ "\n"+  "2) "+pregunta.respCorrecta+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
+                    correcta=2; 
+                  break;   
+                }
+                if (resUsuario==correcta) 
+                {
+                  victoria=victoria+1;
+                  acumuladoPuntos=acumuladoPuntos+catPremio.premio
+                  alert("Felicidades, Haz ganado el juego!!")
+                }
+                else//fallar ultima pregunta
+                {
+                  alert("Lo sentimos, perdiste"+"\n"+"Siempre lo puedes volver a intentar")
+                  acumuladoPuntos=0;
+                }
+              }
+              else//no continuar despues de la pregunta 4
+              {
+                alert("Te retiras con: "+acumuladoPuntos+" puntos.");  
+                //document.write(nombreUsuario+" ganastes  un total de: "+acumuladoPuntos+" puntos.");  
+              }
+            }  
+            else//fallar pregunta 4
+            {
+              alert("Lo sentimos, perdiste"+"\n"+"Siempre lo puedes volver a intentar")
+              acumuladoPuntos=0;
+            }
+          }
+          else//no continuar despues de pregunta 3
+          {
+            alert("Te retiras con: "+acumuladoPuntos+" puntos.");  
+          //  document.write(nombreUsuario+" ganastes  un total de: "+acumuladoPuntos+" puntos.");  
+          }
+        }  
+        else//fallar pregunta 3
+        {
+          alert("Lo sentimos, perdiste"+"\n"+"Siempre lo puedes volver a intentar")
+          acumuladoPuntos=0;
+        }
+      }
+      else//no continuar despues de pregunta 2
+      {
+        alert("Te retiras con: "+acumuladoPuntos+" puntos.");  
+        //document.write(nombreUsuario+" ganastes  un total de: "+acumuladoPuntos+" puntos.");  
+      }
+    }  
+    else//fallar pregunta 2
+    {
+      alert("Lo sentimos, perdiste"+"\n"+"Siempre lo puedes volver a intentar")
+      acumuladoPuntos=0;
     }
-  }else{
+  }
+  else//no continuar despues de pregunta 1
+  {
     alert("Te retiras con: "+acumuladoPuntos+" puntos.");  
-  }  
-}
-continuidad=0;
-if (resUsuario==correcta) {
-  victoria=victoria+1;
-  acumuladoPuntos=acumuladoPuntos+catPremio.premio
-  alert("Felicidades, ahora aumentaremos la dificultad")
-  catPremio=categoriaxPremio[3];
-  //pregunta 4
-  continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
-  if(continuidad==1){ 
-    aleatorio=aleatoriedad(0,4);
-    switch (aleatorio) {
-      case 0:
-      pregunta=preguntaCategoria4[0];
-      resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-      correcta=1
-      break;
-      
-      case 1:
-        pregunta=preguntaCategoria4[1];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respError3+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respCorrecta+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=4
-      break;
-
-      case 2:
-        pregunta=preguntaCategoria4[2];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=1 
-      break;
-
-      case 3:
-        pregunta=preguntaCategoria4[3];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respError2+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respCorrecta +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=3;
-      break;
-
-      case 4:
-        pregunta=preguntaCategoria4[4];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl4 +"\n" + "1) "+pregunta.respError1+ "\n"+  "2) "+pregunta.respCorrecta+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=2; 
-      break;   
-    } 
-  }else{
-    alert("Te retiras con: "+acumuladoPuntos+" puntos.");  
-    correcta=0;
+    //document.write(nombreUsuario+" ganastes  un total de: "+acumuladoPuntos+" puntos.");  
   }
 }  
-continuidad=0;
-if (resUsuario==correcta) {
-  victoria=victoria+1;
-  acumuladoPuntos=acumuladoPuntos+catPremio.premio
-  alert("Felicidades, ahora aumentaremos la pregunta FINAL")
-  aleatorio=aleatoriedad(0,4);
-  catPremio=categoriaxPremio[4];
-  //pregunta 5
-  continuidad=prompt("¿Deseas seguir jugando?"+"\n"+ "Si aciertas en la siguiente ronda ganaras "+ catPremio.premio+" puntos"+"\n"+"Si fallas, pierdes todo"+"\n"+"\n"+nombreUsuario+" si te retiras ahora te vellaras: "+acumuladoPuntos+" puntos."+"\n"+ "Registra 1 para continuar o 2 para retirarte con tus puntos");
-  if(continuidad==1){ 
-    switch (aleatorio) {
-      case 0:
-      pregunta=preguntaCategoria5[0];
-      resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-      correcta=1
-      break;
-    
-      case 1:
-        pregunta=preguntaCategoria5[1];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respError3+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respCorrecta+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=4
-      break;
-    
-      case 2:
-        pregunta=preguntaCategoria5[2];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respCorrecta+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=1 
-      break;
-    
-      case 3:
-        pregunta=preguntaCategoria5[3];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respError2+ "\n"+  "2) "+pregunta.respError1+"\n"+ "3) "+pregunta.respCorrecta +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=3;
-      break;
-    
-      case 4:
-        pregunta=preguntaCategoria5[4];
-        resUsuario=prompt ("Cuarta pregunta"+"\n"+catPremio.categoria+ ", si aciertas ganaras "+ catPremio.premio+" puntos"+"\n"+pregunta.preguntaNvl5 +"\n" + "1) "+pregunta.respError1+ "\n"+  "2) "+pregunta.respCorrecta+"\n"+ "3) "+pregunta.respError2 +"\n"  +"4) "+pregunta.respError3+"\n"+"\n"+nombreUsuario+" tienes acumulados: "+acumuladoPuntos+" puntos.");
-        correcta=2; 
-      break;   
-    } 
-  }else{
-    alert("Te retiras con: "+acumuladoPuntos+" puntos.");  
-    correcta=0;
-  }
+else//fallar pregunta 1
+{
+  alert("Lo sentimos, perdiste"+"\n"+"Siempre lo puedes volver a intentar")
+  acumuladoPuntos=0;
 }
 
-if (resUsuario==correcta) {
-  victoria=victoria+1;
-  acumuladoPuntos=acumuladoPuntos+catPremio.premio
-  alert("Felicidades, Haz ganado el juego!!")
-}
-
-if (resUsuario!=correcta && !=0){
+/*if (resUsuario!=correcta && !=0){
     alert("Lo sentimos, perdiste"+"\n"+"Siempre lo puedes volver a intentar")
     acumuladoPuntos=0;
   }
-
+*/
 console.log("victorias acumuladas"+victoria);
 //fin del juego
 document.write(nombreUsuario+" ganastes  un total de: "+acumuladoPuntos+" puntos.");
