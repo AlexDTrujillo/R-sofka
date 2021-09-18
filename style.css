@@ -1,28 +1,26 @@
-/*creando paleta de colores*/
 :root
 {
+    /*creando paleta de colores*/
     --blanco: #ffffff;
     --azul: #0097A7;
     --grisClaro:  #DFE9F3;
 }
-/** generalidades**/
 html
 {
     
-    box-sizing: border-box;/*comando para solucionar el dilema de el tamaño de las cajas*/
+    box-sizing: border-box;
     font-size: 62.5%;
-    scroll-snap-type: y mandatory;/*agregando la opcion para q al hacer scroll se ubique en puntos especificos de la pagina*/
 }
-*,*:before,*:after{/* el selector * como esta aqui al inicio indica que seleciona todo los elementos del html*/
-box-sizing: inherit;
+*,*:before,*:after
+{
+    box-sizing: inherit;
 }
 body
 {
-    font-family: 'Kreon', serif;/*fuente sacada de google font*/
-    /*font-family: Arial, Helvetica, sans-serif;/*esta es la forma de trabajar las fuentes por defecto*/
+    font-family: 'Kreon', serif;
     background-color: var(--grisClaro);
-    max-width: 120rem;/*toma el maximo de la pantalla hasta un maximo de los 120rem*/
-    margin: 0 auto 0 auto;/*esta forma de hacer margin pone los 4 margenes, el primero significa arriba, segundo derecha, tercero abajo y cuarto izquierda*/
+    max-width: 120rem;
+    margin: 0 auto 0 auto;
     font-size: 2.5rem;
 }
 
@@ -38,7 +36,8 @@ h1,h2
 {
     text-align: center;
 }
-.boton{
+.boton
+{
     background-color: var(--azul);
     color:var(--blanco);
     padding: 1rem 3rem;
@@ -52,11 +51,14 @@ h1,h2
     border: none;
 }
 
-.boton:hover{
+.boton:hover
+{
     cursor: pointer;
 }
-@media(min-width: 768px) {
-    .boton{
+@media(min-width: 768px) 
+{
+    .boton
+    {
         width: auto;
     }
     
